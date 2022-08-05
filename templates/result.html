@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+   <body>
+      <table border = 1>
+         <span>Search query</span><h3>{{tt}}</h3>
+         <span>searching in </span><h3>{{ch}}</h3>
+         <p><h3>The search results</h3></p>
+
+         {% if re|length == 0 %}
+            <p>No results. Change the query</p>
+         {% else %}
+            {% for key, value in re.items() %}
+               <tr>
+                  <th> {{ key }} </th>
+                  {% for v in value %}
+                     {% if v[0:5] == 'https' %}
+                        <td><a href={{v}}>{{v}}</a></td>
+                     {% else %}
+                        <td> {{v}}</td>
+                     {% endif%}
+                  {% endfor %}
+               </tr>
+      
+            {% endfor %}
+         {% endif%}
+      </table>
+   </body>
+</html>
+

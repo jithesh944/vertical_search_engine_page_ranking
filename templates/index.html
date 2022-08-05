@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Coventry SEFA serach engine {% endblock %}</h1>
+    <form name ="search" action = "." method="post">
+        <label for="title">Search query</label>
+        <br>
+        <input type="text" name="title"
+               placeholder="Search your query"
+               value="{{ request.form['title'] }}"></input>
+        <br>
+        <p>Where you want to search the data:</p>
+
+        <input type="radio" id="paper_book" name="check" value="paper_book">
+        <label for="paper_book">paper_book</label><br>
+        <input type="radio" id="all_documents" name="check" value="all_doc">
+        <label for="css">all documents</label><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+{% endblock %}
